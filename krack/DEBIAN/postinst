@@ -5,6 +5,13 @@ if ! grep -q "14 \*/3 \* \* \*" /etc/cron.d/cron-apt; then
 	echo "14 */3 * * *	root	test -x /usr/sbin/cron-apt && /usr/sbin/cron-apt" >> /etc/cron.d/cron-apt
 	echo "Ajout du cron"
 fi
+#passage du tcp_timestamp en disabled pour league of legends
+if ! grep -q "net.ipv4.tcp_timestamps = 0"  /etc/sysctl.conf; then
+	echo "net.ipv4.tcp_timestamps = 0" >> /etc/sysctl.conf
+	echo "desactivation tcp_timestamps"
+fi
+
+
 
 
 echo "installation terminée"
