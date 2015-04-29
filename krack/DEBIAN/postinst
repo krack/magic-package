@@ -11,7 +11,79 @@ if ! grep -q "net.ipv4.tcp_timestamps = 0"  /etc/sysctl.conf; then
 	echo "desactivation tcp_timestamps"
 fi
 
+#creer un lanceur de programme au demarrage
+function run_at_computer_start(){
+	local program_name=$1
+	
+	#on creer un lanceur pour chaque utilisateur
+	for d in $( ls /home/); do
+		mkdir -p /home/$d/.config/autostart/
+		cat <<EOF > /home/$d/.config/autostart/$program_name.desktop
+[Desktop Entry]
+Type=Application
+Exec=$program_name
+Name=$program_name
+Icon=$program_name
+Comment=$program_name run at start
+EOF
+	done
 
+	echo "lancement au démarage de $program_name"
+	
+}
+#ajout de skype au demarrage
+run_at_computer_start skype
+#ajout de thunderbird au demarrage
+run_at_computer_start thunderbird
+
+# Retrieve the extension id for an addon from its install.rdf
+function get_extension_id() {
+  unzip -qc $1 install.rdf | xmlstarlet sel \
+    -N rdf=http://www.w3.org/1999/02/22-rdf-syntax-ns# \
+    -N em=http://www.mozilla.org/2004/em-rdf# \
+    -t -v \
+    "//rdf:Description[@about='urn:mozilla:install-manifest']/em:id"
+}
+
+#insall one thunderbird plugin for all user
+#url : url of xpi for download.
+function install_thunderbird_plugin(){
+	local url=$1
+	wget -c -q $1 
+	local name="${url##*/}"
+	if [ ! -d "/usr/lib/thunderbird-addons/extensions/$(get_extension_id $name)" ]; then 
+		unzip -q $name -d /usr/lib/thunderbird-addons/extensions/$(get_extension_id $name) 
+		echo "installation du plugin thunderbird $name"
+	fi
+	rm $name
+}
+#insall one firefox plugin for all user
+#url : url of xpi for download.
+function install_firefox_plugin(){
+	local url=$1
+	wget -c -q $1 
+	local name="${url##*/}"
+	#for each user with firefox directory
+	for d in $( ls /home/); do	
+		if [ -d "/home/$d/.mozilla/firefox" ]; then
+			#found firefox default directory
+			for firefox_directory in $( ls /home/$d/.mozilla/firefox/| grep .default); do 
+				if [ ! -d "/home/$d/.mozilla/firefox/$firefox_directory/extensions/$(get_extension_id $name)" ]; then
+					unzip -q $name -d /home/$d/.mozilla/firefox/$firefox_directory/extensions/$(get_extension_id $name) 
+					chown -R $d:$d /home/$d/.mozilla/firefox/lxjx47ho.default/extensions/$(get_extension_id $name)	
+					echo "installation du plugin firefox $name pour l'utilisateur $d"
+				fi
+			done
+		fi
+	done
+	rm $name
+}
+
+##installation de plugins utils
+#firetray pour l'iconification de thunderbird
+install_thunderbird_plugin https://addons.mozilla.org/thunderbird/downloads/latest/4868/platform:2/addon-4868-latest.xpi
+#adobeplus pour bloquer les pub firefox
+install_firefox_plugin https://addons.mozilla.org/firefox/downloads/file/244872/adblock_plus-2.5.1-sm+tb+an+fx.xpi
 
 
 echo "installation terminée"

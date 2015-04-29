@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Exec=thunderbird
+Name=thunderbird
+Icon=thunderbird
+Comment=thunderbird run at start
