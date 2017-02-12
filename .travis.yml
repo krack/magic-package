@@ -6,40 +6,39 @@ before_script:
 script:
 - dpkg-deb --build magic-package
 deploy:
-  matrix:
-  - provider: packagecloud
-    repository: magic-package-beta
-    username: krack
-    token:
-      secure: ABK0aC4P2SYdZ7Z8qRsME7EFHouhN9inmR8FCOUjdgNrUOJzIgfBYjgnVnAmqH7F9xtIHTxMCQWiv/S18bBlxoAHu3FOC8KTW+6PL/z2qmYI6P70z5gnQkhuXfqHkCDGpUNYWzCBEnIcAuFXQfJA5h/9E3xgtNdCKiqLmNdgU48jJPnGHdRLijx4vw0+XdCLHsLoPMlE+u0JyPOQNRpcbgvh0jvEpQFFH5l/ceEm2IYNP5jO1JLfIBvWYocerg33y/89q2f+XHW3Ntdv9hDoeLwfQqfFm3x9TA99wiLPy+RXZNZPGEtOAtu/K2WFLcxTb0E9Po6t/c1zYZQNeho8xzsVo9G76y1b+M3UjWv7tgHHC/k8BaSCsdDGqYfOLlj1en673UN5lPBXoQ+wMkhqmc+52uiq4foM50OH5ezqPPAVKUzYJk9RJmFJJQA36Wnf0krTyyh6cJpt17QUYYKlMZf/cHqtFU5XUAdqOim6lfn5AZz/mGfYKRNCt2D72Tx3ZA5dIn3OJnibHeE4i1a10OxKdGF6KIGCvCJprp7fs+chT/yJqh8eWnIpa4SHgOFEzmmfpYOD+JP8/Gj+LEpm3v2y0OrWX/XTtMuLe8B2K+DcXnAddyUQPqNArwD+eH7/HjFQzo618TriZPMtQKXYGwL5D6zgn9sWfV3zrbTvlN4=
-    dist: ubuntu/xenial
-    skip_cleanup: true
-    on:
-      tags: false
-  - provider: packagecloud
-    repository: magic-package-beta
-    username: krack
-    token:
-      secure: ABK0aC4P2SYdZ7Z8qRsME7EFHouhN9inmR8FCOUjdgNrUOJzIgfBYjgnVnAmqH7F9xtIHTxMCQWiv/S18bBlxoAHu3FOC8KTW+6PL/z2qmYI6P70z5gnQkhuXfqHkCDGpUNYWzCBEnIcAuFXQfJA5h/9E3xgtNdCKiqLmNdgU48jJPnGHdRLijx4vw0+XdCLHsLoPMlE+u0JyPOQNRpcbgvh0jvEpQFFH5l/ceEm2IYNP5jO1JLfIBvWYocerg33y/89q2f+XHW3Ntdv9hDoeLwfQqfFm3x9TA99wiLPy+RXZNZPGEtOAtu/K2WFLcxTb0E9Po6t/c1zYZQNeho8xzsVo9G76y1b+M3UjWv7tgHHC/k8BaSCsdDGqYfOLlj1en673UN5lPBXoQ+wMkhqmc+52uiq4foM50OH5ezqPPAVKUzYJk9RJmFJJQA36Wnf0krTyyh6cJpt17QUYYKlMZf/cHqtFU5XUAdqOim6lfn5AZz/mGfYKRNCt2D72Tx3ZA5dIn3OJnibHeE4i1a10OxKdGF6KIGCvCJprp7fs+chT/yJqh8eWnIpa4SHgOFEzmmfpYOD+JP8/Gj+LEpm3v2y0OrWX/XTtMuLe8B2K+DcXnAddyUQPqNArwD+eH7/HjFQzo618TriZPMtQKXYGwL5D6zgn9sWfV3zrbTvlN4=
-    dist: ubuntu/yakkety
-    skip_cleanup: true
-    on:
-      tags: false
-  - provider: packagecloud
-    repository: magic-package
-    username: krack
-    token:
-      secure: ABK0aC4P2SYdZ7Z8qRsME7EFHouhN9inmR8FCOUjdgNrUOJzIgfBYjgnVnAmqH7F9xtIHTxMCQWiv/S18bBlxoAHu3FOC8KTW+6PL/z2qmYI6P70z5gnQkhuXfqHkCDGpUNYWzCBEnIcAuFXQfJA5h/9E3xgtNdCKiqLmNdgU48jJPnGHdRLijx4vw0+XdCLHsLoPMlE+u0JyPOQNRpcbgvh0jvEpQFFH5l/ceEm2IYNP5jO1JLfIBvWYocerg33y/89q2f+XHW3Ntdv9hDoeLwfQqfFm3x9TA99wiLPy+RXZNZPGEtOAtu/K2WFLcxTb0E9Po6t/c1zYZQNeho8xzsVo9G76y1b+M3UjWv7tgHHC/k8BaSCsdDGqYfOLlj1en673UN5lPBXoQ+wMkhqmc+52uiq4foM50OH5ezqPPAVKUzYJk9RJmFJJQA36Wnf0krTyyh6cJpt17QUYYKlMZf/cHqtFU5XUAdqOim6lfn5AZz/mGfYKRNCt2D72Tx3ZA5dIn3OJnibHeE4i1a10OxKdGF6KIGCvCJprp7fs+chT/yJqh8eWnIpa4SHgOFEzmmfpYOD+JP8/Gj+LEpm3v2y0OrWX/XTtMuLe8B2K+DcXnAddyUQPqNArwD+eH7/HjFQzo618TriZPMtQKXYGwL5D6zgn9sWfV3zrbTvlN4=
-    dist: ubuntu/xenial
-    skip_cleanup: true
-    on:
-      tags: true
-  - provider: packagecloud
-    repository: magic-package
-    username: krack
-    token:
-      secure: ABK0aC4P2SYdZ7Z8qRsME7EFHouhN9inmR8FCOUjdgNrUOJzIgfBYjgnVnAmqH7F9xtIHTxMCQWiv/S18bBlxoAHu3FOC8KTW+6PL/z2qmYI6P70z5gnQkhuXfqHkCDGpUNYWzCBEnIcAuFXQfJA5h/9E3xgtNdCKiqLmNdgU48jJPnGHdRLijx4vw0+XdCLHsLoPMlE+u0JyPOQNRpcbgvh0jvEpQFFH5l/ceEm2IYNP5jO1JLfIBvWYocerg33y/89q2f+XHW3Ntdv9hDoeLwfQqfFm3x9TA99wiLPy+RXZNZPGEtOAtu/K2WFLcxTb0E9Po6t/c1zYZQNeho8xzsVo9G76y1b+M3UjWv7tgHHC/k8BaSCsdDGqYfOLlj1en673UN5lPBXoQ+wMkhqmc+52uiq4foM50OH5ezqPPAVKUzYJk9RJmFJJQA36Wnf0krTyyh6cJpt17QUYYKlMZf/cHqtFU5XUAdqOim6lfn5AZz/mGfYKRNCt2D72Tx3ZA5dIn3OJnibHeE4i1a10OxKdGF6KIGCvCJprp7fs+chT/yJqh8eWnIpa4SHgOFEzmmfpYOD+JP8/Gj+LEpm3v2y0OrWX/XTtMuLe8B2K+DcXnAddyUQPqNArwD+eH7/HjFQzo618TriZPMtQKXYGwL5D6zgn9sWfV3zrbTvlN4=
-    dist: ubuntu/yakkety
-    skip_cleanup: true
-    on:
-      tags: true
+- provider: packagecloud
+  repository: magic-package-beta
+  username: krack
+  token:
+    secure: ABK0aC4P2SYdZ7Z8qRsME7EFHouhN9inmR8FCOUjdgNrUOJzIgfBYjgnVnAmqH7F9xtIHTxMCQWiv/S18bBlxoAHu3FOC8KTW+6PL/z2qmYI6P70z5gnQkhuXfqHkCDGpUNYWzCBEnIcAuFXQfJA5h/9E3xgtNdCKiqLmNdgU48jJPnGHdRLijx4vw0+XdCLHsLoPMlE+u0JyPOQNRpcbgvh0jvEpQFFH5l/ceEm2IYNP5jO1JLfIBvWYocerg33y/89q2f+XHW3Ntdv9hDoeLwfQqfFm3x9TA99wiLPy+RXZNZPGEtOAtu/K2WFLcxTb0E9Po6t/c1zYZQNeho8xzsVo9G76y1b+M3UjWv7tgHHC/k8BaSCsdDGqYfOLlj1en673UN5lPBXoQ+wMkhqmc+52uiq4foM50OH5ezqPPAVKUzYJk9RJmFJJQA36Wnf0krTyyh6cJpt17QUYYKlMZf/cHqtFU5XUAdqOim6lfn5AZz/mGfYKRNCt2D72Tx3ZA5dIn3OJnibHeE4i1a10OxKdGF6KIGCvCJprp7fs+chT/yJqh8eWnIpa4SHgOFEzmmfpYOD+JP8/Gj+LEpm3v2y0OrWX/XTtMuLe8B2K+DcXnAddyUQPqNArwD+eH7/HjFQzo618TriZPMtQKXYGwL5D6zgn9sWfV3zrbTvlN4=
+  dist: ubuntu/xenial
+  skip_cleanup: true
+  on:
+    tags: false
+- provider: packagecloud
+  repository: magic-package-beta
+  username: krack
+  token:
+    secure: ABK0aC4P2SYdZ7Z8qRsME7EFHouhN9inmR8FCOUjdgNrUOJzIgfBYjgnVnAmqH7F9xtIHTxMCQWiv/S18bBlxoAHu3FOC8KTW+6PL/z2qmYI6P70z5gnQkhuXfqHkCDGpUNYWzCBEnIcAuFXQfJA5h/9E3xgtNdCKiqLmNdgU48jJPnGHdRLijx4vw0+XdCLHsLoPMlE+u0JyPOQNRpcbgvh0jvEpQFFH5l/ceEm2IYNP5jO1JLfIBvWYocerg33y/89q2f+XHW3Ntdv9hDoeLwfQqfFm3x9TA99wiLPy+RXZNZPGEtOAtu/K2WFLcxTb0E9Po6t/c1zYZQNeho8xzsVo9G76y1b+M3UjWv7tgHHC/k8BaSCsdDGqYfOLlj1en673UN5lPBXoQ+wMkhqmc+52uiq4foM50OH5ezqPPAVKUzYJk9RJmFJJQA36Wnf0krTyyh6cJpt17QUYYKlMZf/cHqtFU5XUAdqOim6lfn5AZz/mGfYKRNCt2D72Tx3ZA5dIn3OJnibHeE4i1a10OxKdGF6KIGCvCJprp7fs+chT/yJqh8eWnIpa4SHgOFEzmmfpYOD+JP8/Gj+LEpm3v2y0OrWX/XTtMuLe8B2K+DcXnAddyUQPqNArwD+eH7/HjFQzo618TriZPMtQKXYGwL5D6zgn9sWfV3zrbTvlN4=
+  dist: ubuntu/yakkety
+  skip_cleanup: true
+  on:
+    tags: false
+- provider: packagecloud
+  repository: magic-package
+  username: krack
+  token:
+    secure: ABK0aC4P2SYdZ7Z8qRsME7EFHouhN9inmR8FCOUjdgNrUOJzIgfBYjgnVnAmqH7F9xtIHTxMCQWiv/S18bBlxoAHu3FOC8KTW+6PL/z2qmYI6P70z5gnQkhuXfqHkCDGpUNYWzCBEnIcAuFXQfJA5h/9E3xgtNdCKiqLmNdgU48jJPnGHdRLijx4vw0+XdCLHsLoPMlE+u0JyPOQNRpcbgvh0jvEpQFFH5l/ceEm2IYNP5jO1JLfIBvWYocerg33y/89q2f+XHW3Ntdv9hDoeLwfQqfFm3x9TA99wiLPy+RXZNZPGEtOAtu/K2WFLcxTb0E9Po6t/c1zYZQNeho8xzsVo9G76y1b+M3UjWv7tgHHC/k8BaSCsdDGqYfOLlj1en673UN5lPBXoQ+wMkhqmc+52uiq4foM50OH5ezqPPAVKUzYJk9RJmFJJQA36Wnf0krTyyh6cJpt17QUYYKlMZf/cHqtFU5XUAdqOim6lfn5AZz/mGfYKRNCt2D72Tx3ZA5dIn3OJnibHeE4i1a10OxKdGF6KIGCvCJprp7fs+chT/yJqh8eWnIpa4SHgOFEzmmfpYOD+JP8/Gj+LEpm3v2y0OrWX/XTtMuLe8B2K+DcXnAddyUQPqNArwD+eH7/HjFQzo618TriZPMtQKXYGwL5D6zgn9sWfV3zrbTvlN4=
+  dist: ubuntu/xenial
+  skip_cleanup: true
+  on:
+    tags: true
+- provider: packagecloud
+  repository: magic-package
+  username: krack
+  token:
+    secure: ABK0aC4P2SYdZ7Z8qRsME7EFHouhN9inmR8FCOUjdgNrUOJzIgfBYjgnVnAmqH7F9xtIHTxMCQWiv/S18bBlxoAHu3FOC8KTW+6PL/z2qmYI6P70z5gnQkhuXfqHkCDGpUNYWzCBEnIcAuFXQfJA5h/9E3xgtNdCKiqLmNdgU48jJPnGHdRLijx4vw0+XdCLHsLoPMlE+u0JyPOQNRpcbgvh0jvEpQFFH5l/ceEm2IYNP5jO1JLfIBvWYocerg33y/89q2f+XHW3Ntdv9hDoeLwfQqfFm3x9TA99wiLPy+RXZNZPGEtOAtu/K2WFLcxTb0E9Po6t/c1zYZQNeho8xzsVo9G76y1b+M3UjWv7tgHHC/k8BaSCsdDGqYfOLlj1en673UN5lPBXoQ+wMkhqmc+52uiq4foM50OH5ezqPPAVKUzYJk9RJmFJJQA36Wnf0krTyyh6cJpt17QUYYKlMZf/cHqtFU5XUAdqOim6lfn5AZz/mGfYKRNCt2D72Tx3ZA5dIn3OJnibHeE4i1a10OxKdGF6KIGCvCJprp7fs+chT/yJqh8eWnIpa4SHgOFEzmmfpYOD+JP8/Gj+LEpm3v2y0OrWX/XTtMuLe8B2K+DcXnAddyUQPqNArwD+eH7/HjFQzo618TriZPMtQKXYGwL5D6zgn9sWfV3zrbTvlN4=
+  dist: ubuntu/yakkety
+  skip_cleanup: true
+  on:
+    tags: true
