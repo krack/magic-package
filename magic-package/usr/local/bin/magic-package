@@ -1,3 +1,6 @@
 #!/bin/bash
 
 echo "version : $TRAVIS_TAG"
+
+echo "magic-package-auto-update : `magic-package-auto-update`"
+echo "magic-package-desktop : `magic-package-desktop`"

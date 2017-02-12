@@ -3,7 +3,7 @@ Version: $TRAVIS_TAG
 Section: stable
 Priority: optional
 Architecture: all
-Depends: bash
+Depends: bash,magic-package-auto-update,magic-package-desktop
 Maintainer: Sylvain Gandon <krack_6@hotmail.com>
 Description: Tools and configuration for my pc parc.
 Homepage: https://github.com/krack/magic-pakage

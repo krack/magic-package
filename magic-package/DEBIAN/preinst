@@ -1,3 +1,8 @@
 #!/bin/bash
+#iadd partner repo 
+if ! grep -q "deb http://archive.canonical.com/ubuntu $(lsb_release -sc) partner" /etc/apt/sources.list; then
+	add-apt-repository "deb http://archive.canonical.com/ubuntu $(lsb_release -sc) partner" 
+	echo "Added  partner repository done"
+fi
 
 echo "install preparation"
