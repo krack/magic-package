@@ -1,7 +1,3 @@
 # magic-package
-Package permettant de garder un système ubuntu à jour sur diférent poste
+ Package ubunutu for automatically install my pc parc.
 
-
-sudo su -
-
-wget -O - https://raw.githubusercontent.com/krack/magic-package/master/install.sh | ssh
