@@ -4,6 +4,7 @@ Section: stable
 Priority: optional
 Architecture: all
 Depends: bash,magic-package-auto-update,magic-package-desktop,magic-package-games
+Suggests: magic-package-workstation
 Maintainer: Sylvain Gandon <krack_6@hotmail.com>
 Description: Tools and configuration for my pc parc.
 Homepage: https://github.com/krack/magic-pakage
