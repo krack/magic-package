@@ -4,5 +4,4 @@ echo "version : $TRAVIS_TAG"
 
 echo "magic-package-auto-update : `magic-package-auto-update`"
 echo "magic-package-desktop : `magic-package-desktop`"
-echo "magic-package-games : `magic-package-games`"
 echo "magic-package-remote-help : `magic-package-remote-help`"
